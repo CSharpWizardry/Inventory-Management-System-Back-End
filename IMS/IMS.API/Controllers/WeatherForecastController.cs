@@ -23,6 +23,9 @@ namespace IMS.API.Controllers
             _logger = logger;
         }
 
+        /// <summary>
+        /// Returns the weather forecast.
+        /// </summary>
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
