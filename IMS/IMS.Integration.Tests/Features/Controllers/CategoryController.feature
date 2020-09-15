@@ -5,5 +5,5 @@
 
 Scenario: Should consume the temporary weather forecast endpoint
 	Given a request must be made
-	When the request is made to the endpoint
+	When the request is made to the 'WeatherForecast' endpoint
 	Then a 200 http status should be returned

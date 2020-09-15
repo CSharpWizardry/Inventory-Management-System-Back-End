@@ -5,8 +5,8 @@ namespace IMS.Integration.Tests.Services
 {
     public class ApiServiceConnector
     {
-        private static HttpClient _client { get; set; }
-        private const string baseUrl = "http://localhost:8080/";
+        private static HttpClient _client { get; }
+        private const string baseUrl = "http://localhost:5000/";
         private static ApiServiceConnector _instance;
         
         private ApiServiceConnector() { }
@@ -21,9 +21,10 @@ namespace IMS.Integration.Tests.Services
             _client = new HttpClient();
         }
 
-        public async Task<string> GetWeatherForecastAsync()
+        public async Task<HttpResponseMessage> GetFromApiAsync(string route)
         {
-            return await _client.GetStringAsync(baseUrl + "WeatherForecast");
+            return await _client.GetAsync(baseUrl + route);
         }
+
     }
 }
