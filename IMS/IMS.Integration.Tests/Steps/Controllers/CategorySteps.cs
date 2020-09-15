@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IMS.Integration.Tests.Services;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -14,11 +15,11 @@ namespace IMS.Integration.Tests.Steps.Controllers
     {
         private readonly ScenarioContext _scenarioContext;
         private HttpClient _client { get; set; }
-
+        private ApiServiceConnector serviceConnector;
         public CategorySteps(ScenarioContext scenarioContext)
         {
             _scenarioContext = scenarioContext;
-            _client = new HttpClient();
+            //_client = new HttpClient();
         }
 
         [Given(@"a request must be made")]
@@ -30,7 +31,8 @@ namespace IMS.Integration.Tests.Steps.Controllers
         [When(@"the request is made to the endpoint")]
         public async Task WhenTheRequestIsMadeToTheEndpoint()
         {
-            var response = await _client.GetAsync("http://localhost:8080/WeatherForecast");
+            //var response = await _client.GetAsync("http://localhost:8080/WeatherForecast");
+            var response = await ApiServiceConnector.Instance.GetWeatherForecastAsync();
             this._scenarioContext.Set(response, "response");
         }
 
