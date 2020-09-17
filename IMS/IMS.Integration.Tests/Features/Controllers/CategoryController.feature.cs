@@ -19,8 +19,8 @@ namespace IMS.Integration.Tests.Features.Controllers
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "3.4.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("CategoryController", Description="\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-        "f two numbers", SourceFile="Features\\Controllers\\CategoryController.feature", SourceLine=0)]
+    [TechTalk.SpecRun.FeatureAttribute("CategoryController", Description="\tIn order to ensure that categories can be processed\r\n\tAs a requester\r\n\tI want to" +
+        " be able to get and send categories to the software", SourceFile="Features\\Controllers\\CategoryController.feature", SourceLine=0)]
     public partial class CategoryControllerFeature
     {
         
@@ -35,8 +35,8 @@ namespace IMS.Integration.Tests.Features.Controllers
         public virtual void FeatureSetup()
         {
             testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
-            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Controllers", "CategoryController", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-                    "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
+            TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("en-US"), "Features/Controllers", "CategoryController", "\tIn order to ensure that categories can be processed\r\n\tAs a requester\r\n\tI want to" +
+                    " be able to get and send categories to the software", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
@@ -72,12 +72,12 @@ namespace IMS.Integration.Tests.Features.Controllers
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("Should consume the temporary weather forecast endpoint", SourceLine=5)]
-        public virtual void ShouldConsumeTheTemporaryWeatherForecastEndpoint()
+        [TechTalk.SpecRun.ScenarioAttribute("Should consume categories", SourceLine=5)]
+        public virtual void ShouldConsumeCategories()
         {
             string[] tagsOfScenario = ((string[])(null));
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Should consume the temporary weather forecast endpoint", null, tagsOfScenario, argumentsOfScenario);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Should consume categories", null, tagsOfScenario, argumentsOfScenario);
 #line 6
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
