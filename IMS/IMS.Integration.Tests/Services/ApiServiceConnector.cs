@@ -23,6 +23,7 @@ namespace IMS.Integration.Tests.Services
         }
 
         public async Task<HttpResponseMessage> GetFromApiAsync(string route) => await _client.GetAsync(baseApiUrl + route);
+        public async Task<HttpResponseMessage> GetFromRouteAsync(string route) => await _client.GetAsync(baseUrl + route);
         
 
     }
