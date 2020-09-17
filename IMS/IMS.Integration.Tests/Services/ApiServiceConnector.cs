@@ -7,6 +7,7 @@ namespace IMS.Integration.Tests.Services
     {
         private static HttpClient _client { get; }
         private const string baseUrl = "http://localhost:5000/";
+        private const string baseApiUrl = baseUrl +  "api/";
         private static ApiServiceConnector _instance;
         
         private ApiServiceConnector() { }
@@ -21,10 +22,8 @@ namespace IMS.Integration.Tests.Services
             _client = new HttpClient();
         }
 
-        public async Task<HttpResponseMessage> GetFromApiAsync(string route)
-        {
-            return await _client.GetAsync(baseUrl + route);
-        }
+        public async Task<HttpResponseMessage> GetFromApiAsync(string route) => await _client.GetAsync(baseApiUrl + route);
+        
 
     }
 }
