@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IMS.API.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -15,28 +16,30 @@ namespace IMS.API.Controllers
     {
 
         private readonly ILogger<CategoryController> _logger;
-
-        public CategoryController(ILogger<CategoryController> logger)
+        private readonly ICategoryRepository categoryRepository;
+        public CategoryController(ILogger<CategoryController> logger, ICategoryRepository categoryRepository)
         {
             _logger = logger;
+            this.categoryRepository = categoryRepository;
         }
 
 
         // GET: api/<CategoryController>
         [HttpGet]
-        public IActionResult Get()
-        {            
-            return new OkObjectResult(new[] {
-                new { Name = "Category1", Description = "Description 1" },
-                new { Name = "Category2", Description = "Description 2" }
-            });
+        public async Task<IActionResult> Get()
+        {
+            return Ok(await categoryRepository.ListAsync());
         }
 
         // GET api/<CategoryController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            return "value";
+            var category = await this.categoryRepository.GetByIdAsync(id);
+            if (category is null)
+                return NotFound();
+            
+            return Ok(category);
         }
 
         // POST api/<CategoryController>
